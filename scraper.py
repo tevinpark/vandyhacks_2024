@@ -9,7 +9,6 @@ Original file is located at
 
 import requests
 from bs4 import BeautifulSoup
-import pandas as pd
 import json
 import urllib.parse
 import time
