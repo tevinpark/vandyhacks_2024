@@ -25,12 +25,7 @@ name_cells = soup.find_all('h4', {'class': 'row'})
 names = []
 for cell in name_cells:
     name = cell.find('a').text.strip()
-    if name == "Constantine Tsinakis (Κώστας Τσινάκης)":
-      names.append("Constantine Tsinakis")
-    elif name == "Larry G. Rolen":
-      names.append("Rolen Larry")
-    else:
-      names.append(name)
+    names.append(name)
 
 names
 
