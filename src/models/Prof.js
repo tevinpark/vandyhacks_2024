@@ -6,6 +6,7 @@ const ProfSchema = new Schema({
     OverallQuality: String,
     TakeAgain: String,
     Difficulty: String,
+    NumberOfReviews: String,
     Tags: [String],
 })
 

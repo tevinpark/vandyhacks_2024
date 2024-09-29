@@ -1,4 +1,4 @@
-.schoolpage{
+.schoolpage {
     display: flex;
     position: relative;
     flex-direction: column;
@@ -8,11 +8,86 @@
     left: 0;
     margin: 0;
     padding: 0;
+    gap: 0;
     height: 100vh;
     width: 100vw;
     background-color: white;
-  }
+}
 
-  .slider{
-    width: '300px'
-  }
+.professorSelectionContainer {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    gap: 5px;
+    height: 20vh;
+}
+
+.slider {
+    width: '300px';
+}
+
+.professorContainer {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+
+    height: 60vh;
+    width: 800px;
+    border-radius: 8px;
+    overflow: auto;
+    background-color: rgb(241, 241, 241);
+}
+
+.professorDiv {
+    display: flex;
+    position: relative;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    margin: 10px;
+    border-radius: 8px;
+    background-color: rgb(223, 223, 223);
+}
+
+.professorInfoDiv {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    justify-content: center;
+    width: 40%;
+    gap: 5px;
+}
+
+.professorScoresDiv {
+    display: flex;
+    position: relative;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 60%;
+    height: 100%;
+}
+
+.professorScoreDiv {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.professorName {
+    margin: 0;
+    margin-top: 5px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: rgb(0, 0, 0);
+}
+
+.professorDepartment {
+    margin: 0;
+    margin-bottom: 15px;
+    font-size: 1rem;
+    font-weight: 200;
+    color: rgb(0, 0, 0);
+}

@@ -53,9 +53,9 @@ function SchoolPage() {
   useEffect(() => {
     if (profData && profData.length > 0) {
       const scores = profData.map(professor => {
-        const { OverallQuality, Difficulty, TakeAgain } = professor;
+        const { OverallQuality, Difficulty, TakeAgain , NumberOfReviews} = professor;
 
-        const score = (OverallQuality * qualityValue - Difficulty * difficultyValue + (TakeAgain/20) * takeAgainValue)/15;
+        const score = (((OverallQuality * qualityValue - Difficulty * difficultyValue + (TakeAgain / 20) * takeAgainValue) * (1 + NumberOfReviews * 0.001)) / 15).toFixed(1);
 
         return { ...professor, score };
       });
@@ -72,46 +72,87 @@ function SchoolPage() {
 
   return (
     <div className={styles.schoolpage}>
-      <h2>Vanderbilt University</h2>
-      <Dropdown selectedOption={selectedDepartment} onOptionChange={handleOptionChange} />
-      <input
-        type="range"
-        min="0"
-        max="100"
-        value={qualityValue}
-        onChange={handleQualitySliderChange}
-        className={styles.sliders}
-      />
-      <p>Current Value: {qualityValue}</p>
-      <input
-        type="range"
-        min="0"
-        max="100"
-        value={difficultyValue}
-        onChange={handleDifficultySliderChange}
-        className={styles.sliders}
-      />
-      <p>Current Value: {difficultyValue}</p>
-      <input
-        type="range"
-        min="0"
-        max="100"
-        value={takeAgainValue}
-        onChange={handleTakeAgainSliderChange}
-        className={styles.sliders}
-      />
-      <p>Current Value: {takeAgainValue}</p>
-      <ul>
+      <div className={styles.professorSelectionContainer}>
+        <h2>Vanderbilt University</h2>
+        <Dropdown selectedOption={selectedDepartment} onOptionChange={handleOptionChange} />
+        <input
+          type="range"
+          min="0"
+          max="100"
+          value={qualityValue}
+          onChange={handleQualitySliderChange}
+          className={styles.sliders}
+        />
+        <p>Quality Weight: {qualityValue}</p>
+        <input
+          type="range"
+          min="0"
+          max="100"
+          value={difficultyValue}
+          onChange={handleDifficultySliderChange}
+          className={styles.sliders}
+        />
+        <p>Difficulty Weight: {difficultyValue}</p>
+        <input
+          type="range"
+          min="0"
+          max="100"
+          value={takeAgainValue}
+          onChange={handleTakeAgainSliderChange}
+          className={styles.sliders}
+        />
+        <p>Take Again Weight: {takeAgainValue}</p>
+      </div>
+      <div className={styles.professorContainer}>
         {profScores && profScores.length > 0 ? (
           profScores.map((professor, index) => (
-            <li key={index}>
-              Name: {professor.Name}, Department: {professor.Department}, Score: {professor.score}
-            </li>
+            <div className={styles.professorDiv}>
+              <div className={styles.professorInfoDiv}>
+                <p key={index} className={styles.professorName}>
+                  Name: {professor.Name}
+                </p>
+                <p key={index} className={styles.professorDepartment}>
+                  Department: {professor.Department}
+                </p>
+              </div>
+              <div className={styles.professorScoresDiv}>
+                <div className={styles.professorScoreDiv}>
+                  <p>Overall Quality </p>
+                  <p key={index}>
+                    {professor.OverallQuality}
+                  </p>
+                </div>
+                <div className={styles.professorScoreDiv}>
+                  <p>Difficulty </p>
+                  <p key={index}>
+                    {professor.Difficulty}
+                  </p>
+                </div>
+                <div className={styles.professorScoreDiv}>
+                  <p>Take Again </p>
+                  <p key={index}>
+                    {professor.TakeAgain}
+                  </p>
+                </div>
+                <div className={styles.professorScoreDiv}>
+                  <p># of Reviews </p>
+                  <p key={index}>
+                    {professor.NumberOfReviews}
+                  </p>
+                </div>
+                <div className={styles.professorScoreDiv}>
+                  <p>Score </p>
+                  <p key={index}>
+                    {professor.score}
+                  </p>
+                </div>
+              </div>
+            </div>
           ))
         ) : (
           <li>No professors found.</li>
         )}
-      </ul>
+      </div>
     </div>
   );
 }
