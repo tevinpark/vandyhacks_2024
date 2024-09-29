@@ -1,0 +1,18 @@
+.schoolpage{
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    left: 0;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    width: 100vw;
+    background-color: white;
+  }
+
+  .slider{
+    width: '300px'
+  }
