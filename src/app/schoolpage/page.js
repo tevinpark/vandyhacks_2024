@@ -55,7 +55,7 @@ function SchoolPage() {
       const scores = profData.map(professor => {
         const { OverallQuality, Difficulty, TakeAgain , NumberOfReviews} = professor;
 
-        const score = ((((OverallQuality * qualityValue * (1 + NumberOfReviews * 0.002)) - Difficulty * difficultyValue + (TakeAgain / 20) * takeAgainValue * (1 + NumberOfReviews * 0.001))) / 15).toFixed(1);
+        const score = ((((OverallQuality * qualityValue * (1 + NumberOfReviews * 0.01)) - Difficulty * difficultyValue + (TakeAgain / 20) * takeAgainValue * (1 + NumberOfReviews * 0.001))) / 15).toFixed(1);
 
         return { ...professor, score };
       });
