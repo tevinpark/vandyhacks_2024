@@ -28,13 +28,53 @@ export default function Dropdown({ selectedOption, onOptionChange }) {
             </button>
           </li>
           <li>
-            <button onClick={() => handleOptionClick('Math Department')}>
-              Math Department
+            <button onClick={() => handleOptionClick('AADS Department')}>
+            AADS Department
+            </button>
+          </li>
+          <li>
+            <button onClick={() => handleOptionClick('CAL Department')}>
+            CAL Department
+            </button>
+          </li>
+          <li>
+            <button onClick={() => handleOptionClick('Anthropology Department')}>
+            Anthropology Department
+            </button>
+          </li>
+          <li>
+            <button onClick={() => handleOptionClick('Art Department')}>
+            Art Department
+            </button>
+          </li>
+          <li>
+            <button onClick={() => handleOptionClick('Biology Department')}>
+            Biology Department
+            </button>
+          </li>
+          <li>
+            <button onClick={() => handleOptionClick('Buisiness Department')}>
+            Buisiness Department
             </button>
           </li>
           <li>
             <button onClick={() => handleOptionClick('Chemistry Department')}>
               Chemistry Department
+            </button>
+          </li>
+          <li>
+            <button onClick={() => handleOptionClick('English Department')}>
+            English Department
+            </button>
+          </li>
+          <li>
+            <button onClick={() => handleOptionClick('Math Department')}>
+              Math Department
+            </button>
+          </li>
+          <li>
+            <button onClick={() => handleOptionClick('Physics/Astronomy Department')}>
+              Physics/Astronomy Department
             </button>
           </li>
         </ul>
